@@ -17,19 +17,19 @@ class PlaceOrderPage(BasePage):
         next_btn = self.explicitly_wait_and_find_element(MAX_WAIT_INTERVAL, PlaceOrderPageLocators.NEXT_BTN)
         next_btn.click()
 
-    def fill_out_username_password(self, username_password):
-        email_field = self.find_element(PlaceOrderPageLocators.EMAIL_INPUT)
-        time.sleep(1)
-        email_field.send_keys(username_password[0])
+    def fill_out_user_info(self, usr_and_pw):
+        email_field = self.explicitly_wait_and_find_element(MAX_WAIT_INTERVAL, PlaceOrderPageLocators.EMAIL_INPUT)
+        time.sleep(2)
+        email_field.send_keys(usr_and_pw[0])
         time.sleep(2)
         password_field = self.explicitly_wait_and_find_element(MAX_WAIT_INTERVAL, PlaceOrderPageLocators.PASSWORD_INPUT)
         time.sleep(1)
-        password_field.send_keys(username_password[1])
+        password_field.send_keys(usr_and_pw[1])
 
-    def fill_out_info(self, shipping_info):
+    def fill_out_shipping_info(self, ship_info):
         form = self.explicitly_wait_and_find_element(MAX_WAIT_INTERVAL, PlaceOrderPageLocators.FORM_PLACE_ORDER)
 
-        for info, value in shipping_info.items():
+        for info, value in ship_info.items():
             form.find_element(By.NAME, info).send_keys(value)
 
         country_dropdown = self.explicitly_wait_and_find_element(MAX_WAIT_INTERVAL,
@@ -47,6 +47,9 @@ class PlaceOrderPage(BasePage):
         ship_method_radio = self.explicitly_wait_and_find_element(MAX_WAIT_INTERVAL, PlaceOrderPageLocators.
                                                                   SHIP_METHOD_RADIO)
         ship_method_radio.click()
+
+        submit_btn = self.explicitly_wait_and_find_element(MAX_WAIT_INTERVAL, PlaceOrderPageLocators.SUBMIT_BTN)
+        submit_btn.click()
 
     def get_place_order_success_label(self):
         lbl_place_order_success_txt = self.explicitly_wait_and_find_element(

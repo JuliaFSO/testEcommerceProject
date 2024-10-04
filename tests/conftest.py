@@ -1,7 +1,7 @@
 import pytest as pytest
 from selenium import webdriver
-from tests.test_01_add_men_items import TestAddMenItems
-from tests.test_02_add_women_items import TestAddWomenItems
+from tests.test_02_add_men_items import TestAddMenItems
+from tests.test_01_add_women_items import TestAddWomenItems
 from pages.view_cart_page import ViewCartPage
 from pages.index_page import IndexPage
 

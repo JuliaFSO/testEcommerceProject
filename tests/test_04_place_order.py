@@ -9,8 +9,8 @@ class TestPlaceOrder:
     def test_place_order(self, driver, username_password, shipping_address):
         place_order_page = PlaceOrderPage(driver)
 
-        place_order_page.fill_out_username_password(username_password)
-        place_order_page.fill_out_info(shipping_address)
+        place_order_page.fill_out_user_info(username_password)
+        place_order_page.fill_out_shipping_info(shipping_address)
 
         place_order_page.wait_and_click_next_btn()
         place_order_page.wait_and_click_place_order_btn()
