@@ -1,7 +1,7 @@
 import pytest as pytest
 from selenium import webdriver
-from tests.test_02_add_men_items import TestAddMenItems
-from tests.test_01_add_women_items import TestAddWomenItems
+from tests.test_03_add_men_items import TestAddMenItems
+from tests.test_02_add_women_items import TestAddWomenItems
 from pages.view_cart_page import ViewCartPage
 from pages.index_page import IndexPage
 
@@ -17,24 +17,35 @@ def driver():
 
 
 @pytest.fixture(scope="function")
+def register_info():
+    user_info = {
+        "firstname": "John",
+        "lastname": "Doe",
+        "email": "john_doe@testmail3.com",
+        "password": "JoHn1234",
+        "password_confirmation": "JoHn1234"
+    }
+
+    return user_info
+
+
+@pytest.fixture(scope="function")
 def username_password():
-    username = "john_doe@email.com"
-    password = "JoHn123"
+    username = "john_doe@myemail.com"
+    password = "JoHn1234"
     return [username, password]
 
 
 @pytest.fixture(scope="function")
 def shipping_address():
     shipping_info = {
-        "firstname": "John",
-        "lastname": "Doe",
         "company": "XYZ",
         "street[0]": "12 Main St",
         "city": "Toronto",
         "region_id": "Ontario",
         "postcode": "A1B2C3",
         "country_id": "Canada",
-        "telephone": "8885559636",
+        "telephone": "8885559636"
     }
 
     return shipping_info

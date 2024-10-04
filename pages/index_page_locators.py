@@ -5,7 +5,10 @@ from selenium.webdriver.common.by import By
 class IndexPageLocators:
 
     HOME = (By.XPATH, "/html/body/div[2]/header/div[2]/a")
+    SIGN_IN_LINK = (By.XPATH, "/html/body/div[2]/header/div[1]/div/ul/li[2]/a")
+    CREATE_ACCOUNT_LINK = (By.XPATH, "/html/body/div[2]/header/div[1]/div/ul/li[3]/a")
     VIEW_CART_BTN = (By.XPATH, "/html/body/div[2]/header/div[2]/div[1]/a")
+    LOGIN_SUCCESS_TEXT = (By.XPATH, "/html/body/div[2]/header/div[1]/div/ul/li[1]/span")
 
     WOMEN_DROPDOWN = (By.ID, "ui-id-4")
     WOMEN_TOPS_LINK = (By.ID, "ui-id-9")

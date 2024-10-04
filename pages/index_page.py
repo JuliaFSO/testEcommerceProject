@@ -7,6 +7,16 @@ from actions.mouse_actions import MouseActions
 # index page
 class IndexPage(BasePage):
 
+    def wait_and_click_create_account_link(self):
+        create_account_btn = self.explicitly_wait_and_find_element(MAX_WAIT_INTERVAL,
+                                                                   IndexPageLocators.CREATE_ACCOUNT_LINK)
+        create_account_btn.click()
+
+    def wait_and_click_sign_in_link(self):
+        create_account_btn = self.explicitly_wait_and_find_element(MAX_WAIT_INTERVAL,
+                                                                   IndexPageLocators.SIGN_IN_LINK)
+        create_account_btn.click()
+
     def wait_and_click_women_hoodies_link(self):
         mouse_actions = MouseActions(self.driver)
 
